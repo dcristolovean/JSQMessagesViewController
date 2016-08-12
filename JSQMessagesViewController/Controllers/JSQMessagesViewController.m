@@ -614,7 +614,8 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
             if (avatarHighlightedImageURL != nil) {
                 NSCharacterSet *expectedCharSet = [NSCharacterSet URLQueryAllowedCharacterSet];
                 NSURL *url = [NSURL URLWithString:[avatarHighlightedImageURL stringByAddingPercentEncodingWithAllowedCharacters:expectedCharSet]];
-                NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+//                NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+                NSURLSession *session = [NSURLSession sharedSession];
                 NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                     NSHTTPURLResponse *resp = (NSHTTPURLResponse *)response;
                     
@@ -639,7 +640,8 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
                 if (avatarImageURL != nil && [avatarImageURL length] > 0) {
                     NSCharacterSet *expectedCharSet = [NSCharacterSet URLQueryAllowedCharacterSet];
                     NSURL *url = [NSURL URLWithString:[avatarImageURL stringByAddingPercentEncodingWithAllowedCharacters:expectedCharSet]];
-                    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+//                    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+                    NSURLSession *session = [NSURLSession sharedSession];
                     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                         NSHTTPURLResponse *resp = (NSHTTPURLResponse *)response;
                         
